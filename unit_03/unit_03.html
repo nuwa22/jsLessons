@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+    <script>
+        // we use function to avoid repeating the same code
+        function displayName(firstName, lastName){
+            console.log(firstName + " " + lastName);
+        }
+
+        displayName("Saman", "Kumara");
+        displayName("Kumari", "Perera"); 
+
+        // return value
+
+        function getInfo(fullName, age){
+            let output = fullName + " is " + age + " years old.";
+            return output;
+        }
+
+        let out = getInfo("Saman Kumara", 25);
+            console.log(out);
+
+        getInfo("Kumari Perera", 30);
+
+
+    </script>
+</head>
+<body>
+    <h1>Function</h1>
+    
+</body>
+</html>
