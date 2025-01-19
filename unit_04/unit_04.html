@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+    <script>
+        let globalScope = "This is Globale Scope Var"; // we can use this variable in any function or block of code
+
+        function test(){
+            let localScope = "This is Local Scope Variable"; // we can use this variable only in this function
+            let functionScope = "This is Function Scope Variable"; // we can create a new variable with the same name as into function and in only work in this function
+            console.log(functionScope);
+            console.log(localScope);
+        }
+
+        
+        test();
+        console.log(globalScope); 
+        
+        // block scope
+
+        {
+            let blockScope = "Saman Kumara"; // we can use this variable only in this block
+            console.log(blockScope);
+            console.log(globalScope);
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Scope</h1>
+</body>
+</html>
