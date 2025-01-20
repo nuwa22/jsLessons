@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Object</title>
+    
+    <script>
+        let student = {
+            name : "Saman", // property
+            age : 18,
+            sayHi : function(){
+                console.log("Hi.. My name is " + this.name); // method
+                console.log("I am " + this.age + " years old");
+            }
+        }
+
+        student.sayHi();
+        console.log(student.name);
+        console.log(student.age);
+
+        student.age = 20;
+        console.log(student.age);
+
+    student.sayHellow = function(){
+        console.log("Hellow");
+    }
+
+    student.sayHellow(); // add new method
+
+    student.address = "No. 50, Street1, City1"; //add new property
+    console.log(student.address);
+
+    console.log(student);
+
+    delete student.age; //delete property
+    console.log(student)
+
+    student.age = 18; //add property
+
+    student.name = "Kamal"; //update property
+    student.sayHi();
+
+    //common Object methods
+
+    console.log(Object.keys(student)); //get all property names
+    console.log(Object.values(student)); //get all property values
+    console.log(Object.entries(student)); //get all property names and values
+
+    let student2 = {
+        name : "Nimal",
+        grade : "A"
+    }
+
+    Object.assign(student2, student); //copy all properties from student to student2
+    console.log(student2);
+
+    </script>
+</head>
+<body>
+    <h1>JavaScript Object</h1>
+</body>
+</html>
