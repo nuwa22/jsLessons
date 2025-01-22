@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Dom</title>
+    
+</head>
+<body>
+    <h1 id = "title">JS Dom</h1>
+    <p id = "text" class="paragraph">Testing text</p>
+    <p class="paragraph">Testing text2</p>
+    <button>Click me</button>
+    <p>Testing text3</p>
+    <a id = "myLink" href = "https://www.google.com">Google</a>
+
+    <style>
+        .textGreen {
+            color : green;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+
+
+    <script>
+        // we can use ID to select the element
+        let titleElement = document.getElementById("title"); ///must be unique
+        console.log(titleElement.innerHTML);
+        titleElement.innerHTML = "Changed title"; // we can change the content of the element
+        
+        // we can use class to select the element
+        let paragraph = document.getElementsByClassName("paragraph"); //not unique.we can use multiple class
+        //we can fine more dom element by w3school website, it domain name is w3school.com and path is /js/js_htmldom_elements.asp
+
+        // we can use tag name to select the element
+        let textList = document.getElementsByTagName("p");
+        console.log(textList);
+
+        // we can use querySelector to select the element
+        let titleElement2 = document.querySelector("#title");
+        console.log(titleElement2);
+
+        // we can use querySelectorAll to select the element
+        let paragraph3 = document.querySelectorAll(".paragraph");
+        console.log(paragraph3);
+
+        // we can change attribute of the element
+        document.getElementById("myLink").href = "https://www.yahoo.com";
+        document.getElementById("myLink").innerHTML = "Yahoo";
+
+        // we use variable for easy to access the same element multiple times
+        let myLink = document.getElementById("myLink");
+        myLink.href = "https://www.bing.com";
+        myLink.innerHTML = "Bing";
+
+        myLink.style.color = 'red'; // we can change the style of the element
+        // we can find more style in w3school website, it domain name is w3school.com and path is /js/js_htmldom_css.asp
+
+        myLink.classList.add("textGreen"); // we can add class to the element
+        
+        myLink.classList.remove("textGreen"); // we can remove class from the element
+
+    </script>
+</body>
+</html>
