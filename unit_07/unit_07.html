@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Statments</title>
+</head>
+<body>
+    <h1>Conditions</h1>
+
+    Age:
+    <input type = "text" id = "age">
+    <button onclick="checkInput()">Click me</button>
+    <br>
+    <br>
+    District:
+    <select id="district">
+        <option value="Colombo">Colombo</option>
+        <option value="Gampaha">Gampaha</option>
+        <option value="Kalutara">Kalutara</option>
+        <option value="Rathnapura">Rathnapura</option>
+        <option value="Öther">Other</option>
+    </select>
+    <button onClick="checkDistrict()">
+        Check District
+    </button>
+    <script>
+        function checkInput(){
+            let age = document.getElementById("age").value;
+            age = age == '' ? 10 : age; // this is ternary operator
+            console.log("Age is: " + age); // this is a string concatenation
+
+            // this is a conditional statement
+            if(age >= 18){
+                console.log("Ölder than 18"); 
+            }
+            else{
+                console.log("Younger than 18");
+            }
+        }
+
+        function checkDistrict(){
+            let district = document.getElementById("district").value;
+            
+            // this is a switch statement
+            switch(district){
+                case "Colombo":
+                    console.log("You are in Colombo");
+                    break;
+                case "Gampaha":
+                    console.log("You are in Gampaha");
+                    break;
+                case "Kalutara":
+                    console.log("You are in Kalutara");
+                    break;
+                case "Rathnapura":
+                    console.log("You are in Rathnapura");
+                    break;
+
+                default:
+                    console.log("You are in a different district");
+            }
+        }
+    </script>
+</body>
+</html>
