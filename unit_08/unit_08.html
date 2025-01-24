@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison and Logical Operators</title>
+</head>
+<body>
+    <label for="input1">Input 1</label>
+    <input type="text" id="input1">
+    <br>
+    <br>
+    <label for="input2">Input 2</label>
+    <input type="text" id="input2">
+    <br>
+    <br>
+    <button onClick="compare()">Compare</button>
+    <div id="result"></div>
+
+    <script>
+        function compare(){
+            let val1 = document.getElementById("input1").value;
+            let val2 = document.getElementById("input2").value;
+            val1 = Number(val1);
+            val2 = Number(val2); // we use this method to convert the string to number ve can have convert int, float, double, etc
+            //val1 = parseInt(val1);  we use this method to convert the string to integer
+            //val2 = parseFloat(val2); we use this method to convert the string to float
+
+            console.log("Inputs:" + typeof val1, typeof val2);
+            let output = '';
+
+            // ve use == to compare values
+            if(val1 == val2){
+                output = "Input1 == Input2 <br>";
+            }
+            
+            // we use === to compare values and data types
+            if(val1 === val2){
+                output += "Input1 === Input2 <br>";
+            }
+
+            // we use != to compare values
+            if(val1 != val2){
+                output += "Input1 != Input2 <br>";
+            }
+
+            // we use !== to compare values and data types
+            if(val1 !== val2){
+                output += "Input1 !== Input2 <br>"; // ve use += to append the string
+            }
+            if(val1 > val2){
+                output += "Input1 > Input2 <br>";
+            }
+
+            if(val1 < val2){
+                output += "Input1 < Input2 <br>";
+            }
+
+            if(val1 >= val2){
+                output += "Input1 >= Input2 <br>";
+            }
+
+            if(val1 <= val2){
+                output += "Input1 <= Input2 <br>";
+            }
+            output += "__________________________<br>";
+
+            // logical operators
+
+            if(val1 > 10 && val2 > 10){
+                output += "Input1 > 10 and Input2 > 10 <br>";
+            }
+
+            if(val1 > 10 || val2 > 10){
+                output += "Input1 > 10 or Input2 > 10 <br>";
+            }
+
+            if(!(val1 > 10)){
+                output += "Input1 is not greater than 10 <br>";
+            }
+
+
+
+            document.getElementById("result").innerHTML = output;
+
+            
+            
+        }
+    </script>
+</body>
+</html>
