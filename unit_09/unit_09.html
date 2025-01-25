@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops and iteration</title>
+</head>
+<body>
+    <h1>Loops and iteration</h1>
+    <ul id="list">
+    </ul>
+    <script>
+        let list = document.getElementById("list"); // get the list element
+
+        // for loop
+        for (let i = 0; i < 5 ; i++){
+        let li = document.createElement("li"); // create a new list item
+        let text = document.createTextNode(i); // create a text node
+        li.appendChild(text); // append the text node to the list item
+        list.appendChild(li); // append the list item to the list
+        }
+
+        // while loop
+        let x = 0
+        while(x < 10){
+        let li = document.createElement("li"); // create a new list item
+        let text = document.createTextNode("X value is " + x); // create a text node
+        li.appendChild(text); // append the text node to the list item
+        list.appendChild(li); // append the list item to the list
+
+        x += 2
+        }
+
+        // do while loop
+        let y = 0
+        do{
+            y += 3;
+            let li = document.createElement("li"); // create a new list item
+            let text = document.createTextNode("Y value is " + y); // create a text node
+            li.appendChild(text); // append the text node to the list item
+            list.appendChild(li); // append the list item to the list
+        }while(y < 10)
+
+        // break and continue statements
+        for (let i = 0; i < 50 ; i++){
+            if (i % 2 == 0){
+                continue;
+            }
+            let li = document.createElement("li"); // create a new list item
+            let text = document.createTextNode(i); // create a text node
+            li.appendChild(text); // append the text node to the list item
+            list.appendChild(li); // append the list item to the list
+
+            if(i == 25){
+                break;
+        }
+        }
+
+        // for in loop
+        // for in loop using object
+        let user = {
+            name : "Kamal",
+            age : 20,
+            address : "Colombo"
+        }
+        // we use const data in user to get the keys of the object
+        for ( const data in user){
+            let li = document.createElement("li"); // create a new list item
+            let text = document.createTextNode(data + " is " + user[data]); // create a text node
+            li.appendChild(text); // append the text node to the list item
+            list.appendChild(li); // append the list item to the list
+
+        }
+
+        //array
+        // for in loop using array
+        let myArray = ["Saman", "Nimal", "Kamal", "Sunil"];
+        for (const myData in myArray){
+            let li = document.createElement("li"); // create a new list item
+            let text = document.createTextNode(myArray[myData]); // create a text node
+            li.appendChild(text); // append the text node to the list item
+            list.appendChild(li); // append the list item to the list
+
+        }
+
+        // for of loop
+        // we can easily get the values of the array using for of loop
+        for (const data of myArray){
+            let li = document.createElement("li"); // create a new list item
+            let text = document.createTextNode("Data is " + data); // create a text node
+            li.appendChild(text); // append the text node to the list item
+            list.appendChild(li); // append the list item to the list
+        }
+
+        
+        let users = [
+            {name : "saman", age : 20},
+            {name : "nimal", age : 25},
+            {name : "kamal", age : 30},
+        ];
+
+        let names = [];
+        for (let user of users){
+            names.push(user.name);
+        }
+        console.log(names);
+
+        // map function
+        let age = users.map(function(user){
+            return user.age;
+        });
+        console.log(age);
+
+        // filter function
+        let filtered = users.filter(function(user){
+            return user.age > 20;
+        });
+        console.log(filtered);
+
+    </script>
+
+</body>
+</html>
