@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event listeners</title>
+</head>
+<body>
+    <h1>Event listeners</h1>
+    <button>
+        One
+    </button>
+    <button id="myButton">
+        Click Me
+    </button>
+    
+    <input type="text" id="myInput">
+
+    <script>
+        let myButton = document.getElementById("myButton");
+
+        // click event
+        myButton.addEventListener('click', function(){
+            console.log("Button is Clicked");
+        })
+
+        // double click event
+        myButton.addEventListener('dblclick', function(){
+            console.log("Mouse is double Clicked");
+        })
+
+        // mouseover event
+        myButton.addEventListener("mouseleave", function(){
+            console.log("mouseleave")
+            alert("Don't leave me")
+        })
+
+        // onfocus event
+        myButton.onfocus = function(){
+            console.log("Fucused")
+        }
+
+        //change event
+        const myInput = document.getElementById("myInput");
+        myInput.addEventListener("change", function(){
+            console.log("Input is changed");
+        })
+
+    
+        // keyup event
+        myInput.addEventListener("keyup", function(e){
+           console.log("Key is up");
+           console.log(e.key);
+       })
+
+       // keydown event, prevent default
+       myInput.addEventListener("keydown", function(e){
+        if(e.key == "s"){
+            e.preventDefault();
+        }
+        
+        console.log(e);
+       })
+
+       window.addEventListener("resize", function(x){
+        console.log(x);
+       })
+        
+    </script>
+</body>
+</html>
