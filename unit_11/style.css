@@ -1,0 +1,39 @@
+body{
+    background-color: lightblue;
+    font-family: poppins;
+    text-align: center;
+    margin-top: 20vh;
+}
+
+.head{
+    font-size: 40px;
+    font-weight: bold;
+    color: darkred;
+}
+
+#game_section{
+    background-color: violet;
+    height: 50vh;
+    width: 50vw;
+    border-radius: 20px;
+    border : 3px solid black;
+    margin-left: 25%;
+}
+
+#display{
+    font-size: 50px;
+    font-weight: bold;
+    color: darkblue;
+}
+
+
+p{
+    font-size: 20px;
+    font-weight: bold;
+    color: darkblue;
+}
+
+progress{
+    width: 80%;
+}
+

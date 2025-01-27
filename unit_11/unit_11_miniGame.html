@@ -3,28 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Typing Game</title>
 </head>
 <body id="body">
-    <h1>Typing Game</h1>
+    <h1 class="head">Typing Game</h1>
     <div id="game_section">
-        <h2 id="display" style="padding:20px">Key</h2>
+        <h2 id="display">Key</h2>
+            <div class="result">
             <p>
-                Correct Inputs : <span id="correct">0</span>
+                Correct Inputs :<span id="correct">0</span><br>
+                Miss :<span id="miss">0</span><br>
                 Wrong Inputs : <span id="wrong">0</span>    
             </p>
+        </div>
     </div>
+    <progress value="0" max="100"></progress><br>
+    <label for="speed">Speed</label>
+    <input type="range" id="speed" min="100" max="1000" >
 
     <script>
         function randomLetter(){
-            const alphabet = "äbcdefghijklmnopqrstuvwxyz";
+            const alphabet = "abcdefghijklmnopqrstuvwxyz";
             const randomIndex = Math.floor(Math.random() * alphabet.length);
             return alphabet[randomIndex];
         }
         const display = document.getElementById("display");
         const correct = document.getElementById("correct");
         const wrong = document.getElementById("wrong");
+        const progress = document.querySelector("progress");
+        const miss = document.getElementById("miss");
+        const speed = document.getElementById("speed");
         display.innerHTML = randomLetter();
+        let timer;
 
         document.getElementById("body").addEventListener("keyup", function(e){
             console.log(e.key);
@@ -35,7 +46,28 @@
             console.log("Wrong");
             wrong.innerHTML++;
         }
-        display.innerHTML = randomLetter();})
+        display.innerHTML = randomLetter();
+        startTimer();
+    })
+
+        let delay = 1000;
+        function startTimer(){
+            progress.value = 0;
+            clearInterval(timer);
+            timer = setInterval(function(){
+                progress.value += 10;
+                if(progress.value >= 100){
+                    miss.innerHTML++;
+                    display.innerHTML = randomLetter();
+                    startTimer();
+                }
+            }, delay)
+        }
+
+        speed.onchange = function(){
+            delay = 1000 - speed.value;
+            startTimer();
+        }
     </script>
 </body>
 </html>
