@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch data from web</title>
+</head>
+<body>
+    <h1>Fech data from web</h1>
+    <p id="output">
+
+    </p>
+    <button onclick="getData()">Get data</button>
+    <button onclick="getDataFetch()">Get data fetch</button>
+    <script>
+        function getData(){
+            console.log("Button clicked");
+            
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(xhttp.responseText);
+            }
+        }
+            xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos/2", true);
+            xhttp.send();  
+        }
+
+        function getDataFetch(){
+            fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response => response.json())
+            .then(function (data){
+                console.log(data)
+            document.getElementById("output").innerHTML = data.title;
+            });
+        }
+    </script>
+</body>
+</html>
