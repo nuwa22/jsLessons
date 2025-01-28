@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Callback</title>
+    <p id="display"></p>
+    <button id ="myButton">Click Me</button>
 </head>
 <body>
     <script>
@@ -16,6 +18,12 @@
             callback(name);
         }
         processUserInput(greeting);
+
+        processUserInput(function(name){
+            document.getElementById("display").innerHTML=name;
+        })
+
+        document.getElementById("myButton").addEventListener("click", greeting);
     </script>
 </body>
 </html>
