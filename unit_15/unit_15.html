@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person1 = {
+            name: "Saman",
+            age: 25,
+            address: "Colombo",
+            subjects: ["Maths", "Science", "English"],
+            sayHi: function(){
+                console.log("Hi, I am " + this.name);
+            },
+            school: {
+                name: "Royal College",
+                phone: "0112345678",
+                address: "School Lane, Colombo 07"
+            }
+        }
+
+        //object constructor function
+        function Person(name, age, address){
+            this.name = name;
+            this.age = age;
+            this.address = address;
+            this.sayHi = function(){
+                console.log("Hi, I am " + this.name);
+            }
+        }
+
+
+        //create object using object constructor function.no need to repeat the code
+        let person2 = new Person("Kamal", 30, "Kandy");
+        console.log(person2);
+
+        let person3 = new Person("Nimal", 35, "Galle");
+        console.log(person3);
+
+        //Prototype based
+        console.log(person2.__proto__);
+
+        // we can add a method to the object
+        person3.sayHello = function(){
+            console.log("Hello,.......... I am " + this.name);
+        }
+        
+
+        //we can add a method to the prototype of the object constructor function
+
+        Person.prototype.sayHello = function(){
+            console.log("Hello, I am " + this.name);
+        }
+
+        person2.sayHello();
+        person3.sayHello();
+
+        //call()
+
+        const student1 = {
+            fullName: function(){
+                console.log(this.firstName + " " + this.lastName);
+            }
+        }
+        
+        const student2 = {
+            firstName: "Kamal",
+            lastName: "Perera"
+        }
+
+        student1.fullName.call(student2);
+
+        const student3 = {
+            fullName: function(start, end){
+                console.log(start + this.firstName + " " + this.lastName + end);
+            }
+        }
+        
+        const student4 = {
+            firstName: "Nimal",
+            lastName: "Perera"
+        }
+
+        student3.fullName.call(student4, "* ", " __");
+
+        //apply()
+
+        const student5 = {
+            fullName: function(start, end){
+                console.log(start + this.firstName + " " + this.lastName + end);
+            }
+        }
+        
+        const student6 = {
+            firstName: "Sunil",
+            lastName: "Perera"
+        }
+
+        student5.fullName.apply(student6, ["* ", " __"]);
+
+        //bind()
+
+        const student7 = {
+            fullName: function(start, end){
+                console.log(start + this.firstName + " " + this.lastName + end);
+            }
+        }
+        
+        const student8 = {
+            firstName: "Nimal",
+            lastName: "Perera"
+        }
+
+        let myFunction = student7.fullName.bind(student8, "@", ")")
+        myFunction();
+
+    </script>
+</body>
+</html>
